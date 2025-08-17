@@ -1,8 +1,9 @@
+
 import { useState } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import type { Movie } from '../../types/movie';
 import { getMovies } from '../../services/movieService';
-
+import { Toaster } from 'react-hot-toast';
 import MovieGrid from '../MovieGrid/MovieGrid';
 import MovieModal from '../MovieModal/MovieModal';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
@@ -42,7 +43,7 @@ function App() {
   return (
     <>
       <SearchBar onSubmit={handleSubmit} />
-
+      <Toaster />
       {movie.length > 0 && (
         <MovieGrid onSelect={handleMovieClick} movies={movie} />
       )}
